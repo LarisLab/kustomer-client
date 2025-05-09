@@ -15237,7 +15237,7 @@ export type GetMessagesByConversationData = {
         /**
          * List of resources to include in this response. Use a comma to separate resources. Supports the `attachments` resource.
          */
-        include?: string;
+        include?: 'attachments';
     };
     url: '/conversations/{id}/messages';
 };
@@ -15322,6 +15322,39 @@ export type GetMessagesByConversationResponses = {
             prev: string | null;
             next: string | null;
         };
+        included?: Array<{
+            type: 'attachment';
+            id: string;
+            attributes: {
+                name: string;
+                contentType: string;
+                contentLength: number;
+                redacted: boolean;
+            };
+            relationships: {
+                org: {
+                    links: {
+                        self: string;
+                    };
+                    data: {
+                        type: string;
+                        id: string;
+                    };
+                };
+                message: {
+                    links: {
+                        self: string;
+                    };
+                    data: {
+                        type: string;
+                        id: string;
+                    };
+                };
+            };
+            links: {
+                self: string;
+            };
+        }>;
     };
 };
 
