@@ -15281,6 +15281,21 @@ export type GetMessagesByConversationResponses = {
                 sentAt: string;
                 createdAt: string;
                 updatedAt: string;
+                [key: string]: unknown | string | number | {
+                    [key: string]: unknown;
+                } | {
+                    inReplyTo: string;
+                    recipient: {
+                        mailboxHash: string;
+                        email: string;
+                    };
+                    cc: Array<unknown>;
+                    to: Array<{
+                        email: string;
+                    }>;
+                    from: string;
+                    subject: string;
+                };
             };
             relationships: {
                 org: {
@@ -15309,6 +15324,15 @@ export type GetMessagesByConversationResponses = {
                         type: string;
                         id: string;
                     };
+                };
+                attachments?: {
+                    links: {
+                        self: string;
+                    };
+                    data: Array<{
+                        type: string;
+                        id: string;
+                    }>;
                 };
             };
             links: {
