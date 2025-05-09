@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/LarisLab/kustomer-client/compare/v1.0.1...v1.0.2) (2025-05-09)
+
+
+### Bug Fixes
+
+* message includes better typing ([cfea6b8](https://github.com/LarisLab/kustomer-client/commit/cfea6b80d4b7bc478e0d10c0f3a1ee5f42d4f69e))
+
 ## [1.0.1](https://github.com/LarisLab/kustomer-client/compare/v1.0.0...v1.0.1) (2025-05-09)
 
 
