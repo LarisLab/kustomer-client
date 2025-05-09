@@ -1,6 +1,6 @@
 # Kustomer Client
 
-JavaScript and NodeJS are missing a lot of core functionalities. The goal of this library is to bring a variety of useful helpers on both NodeJS & Browser with strong **TypeScript** typing.
+Kustomer javascript API client.
 
 Missing something? Create [feature request](https://github.com/LarisLab/kustomer-client/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=)!
 
@@ -20,19 +20,44 @@ npm install kustomer-client
 yarn add kustomer-client
 ```
 
-Import what you need:
+## Usage
 
 ```typescript
-import * as Kustomer from 'kustomer-client'
+import { createKustomerClient, KustomerApi } from './src'
 
-const client = Kustomer.createClient({
+const client = createKustomerClient({
+    subdomain: 'subdomain', // https://{subdomain}.api.kustomerapp.com
     auth: 'api key',
 })
 
-const result = await Kustomer.getMessagesByConversation({
+const conversations = await KustomerApi.getConversations({
     client,
-    path: {
-        id: '1',
+    query: {
+        page: 1,
+        pageSize: 5,
     },
 }).then((v) => v.data.data)
+
+for (const conversation of conversations) {
+    const messages = await KustomerApi.getMessagesByConversation({
+        client,
+        path: {
+            id: conversation.id,
+        },
+    }).then((v) => v.data.data)
+
+    for (const message of messages) {
+        console.log(message)
+    }
+
+    await KustomerApi.updateConversation({
+        client,
+        path: {
+            id: conversation.id,
+        },
+        body: {
+            name: 'My new name',
+        },
+    })
+}
 ```

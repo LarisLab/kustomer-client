@@ -112,7 +112,7 @@ export type UpsertAttachmentResponseSuccess = {
     };
 };
 
-export type GetAttachmentsbyIdOutboundOnlyResponseSuccess = {
+export type GetAttachmentsByIdOutboundOnlyResponseSuccess = {
     data: {
         id: string;
         type: string;

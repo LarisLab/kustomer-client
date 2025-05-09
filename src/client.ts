@@ -5,30 +5,30 @@ import {
     createConfig as createDefaultConfig,
 } from '@hey-api/client-fetch'
 
-export interface ClientConfig extends Pick<Config, 'fetch'> {
+export interface KustomerClientConfig extends Pick<Config, 'fetch'> {
     subdomain?: string
     auth: string
 }
 
-export type { Client, RequestResult } from '@hey-api/client-fetch'
+export type { Client as KustomerClient } from '@hey-api/client-fetch'
 
-export class ClientError extends Error {
+export class KustomerClientError extends Error {
     code?: string
     status?: number
 
     constructor(message: string, code?: string, status?: number) {
         super(message)
-        this.name = 'ClientError'
+        this.name = 'KustomerClientError'
         this.code = code
         this.status = status
     }
 }
 
-export function createClient({
+export function createKustomerClient({
     subdomain,
     auth,
     ...config
-}: ClientConfig): Client {
+}: KustomerClientConfig): Client {
     const client = createDefaultClient(
         createDefaultConfig({
             throwOnError: true,
@@ -60,13 +60,13 @@ export function createClient({
             const code = errors[0].code
 
             if (message) {
-                return new ClientError(message, code, status)
+                return new KustomerClientError(message, code, status)
             }
         }
 
         return error instanceof Error
-            ? new ClientError(error.message)
-            : new ClientError(String(error))
+            ? new KustomerClientError(error.message)
+            : new KustomerClientError(String(error))
     })
 
     return client
