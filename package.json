@@ -23,7 +23,12 @@
     "main": "./dist/bundle.cjs",
     "module": "./dist/bundle.module.mjs",
     "unpkg": "./dist/bundle.umd.js",
-    "exports": "./dist/bundle.modern.mjs",
+    "exports": {
+        "import": "./dist/bundle.modern.mjs",
+        "require": "./dist/bundle.cjs",
+        "default": "./dist/bundle.modern.mjs",
+        "types": "./dist/index.d.ts"
+    },
     "source": "./src/index.ts",
     "types": "./dist/index.d.ts",
     "files": [
