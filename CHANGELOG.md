@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/LarisLab/kustomer-client/compare/v1.0.2...v1.0.3) (2025-05-09)
+
+
+### Bug Fixes
+
+* conversation message better types ([2742afc](https://github.com/LarisLab/kustomer-client/commit/2742afc5de74050e139b497eb8c93e157f63088a))
+
 ## [1.0.2](https://github.com/LarisLab/kustomer-client/compare/v1.0.1...v1.0.2) (2025-05-09)
 
 
