@@ -14020,6 +14020,13 @@ export type GetConversationsResponses = {
                 direction: string;
                 outboundMessageCount: number;
                 rev: number;
+                [key: string]: unknown | string | Array<string> | number | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                } | {
+                    [key: string]: unknown;
+                } | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                };
             };
             relationships: {
                 org: {
@@ -14304,6 +14311,13 @@ export type GetConversationResponses = {
                 direction: string;
                 outboundMessageCount: number;
                 rev: number;
+                [key: string]: unknown | string | Array<unknown> | number | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                } | {
+                    [key: string]: unknown;
+                } | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                };
             };
             relationships: {
                 org: {
@@ -14736,6 +14750,13 @@ export type GetConversationByExternalIdResponses = {
                 direction: string;
                 outboundMessageCount: number;
                 rev: number;
+                [key: string]: unknown | string | Array<unknown> | number | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                } | {
+                    [key: string]: unknown;
+                } | Array<unknown> | Array<unknown> | {
+                    [key: string]: unknown;
+                };
             };
             relationships: {
                 org: {
