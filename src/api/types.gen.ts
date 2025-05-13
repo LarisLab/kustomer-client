@@ -3733,7 +3733,7 @@ export type GetMessagesByConversationResponses = {
 export type GetMessagesByConversationResponse =
     GetMessagesByConversationResponses[keyof GetMessagesByConversationResponses]
 
-export type CreateMessagefromConversationData = {
+export type CreateMessageFromConversationData = {
     body?: {
         id?: string
         externalId?: string
@@ -3836,7 +3836,7 @@ export type CreateMessagefromConversationData = {
     url: '/conversations/{id}/messages'
 }
 
-export type CreateMessagefromConversationResponses = {
+export type CreateMessageFromConversationResponses = {
     /**
      * Created
      */
@@ -3912,10 +3912,10 @@ export type CreateMessagefromConversationResponses = {
     }
 }
 
-export type CreateMessagefromConversationResponse =
-    CreateMessagefromConversationResponses[keyof CreateMessagefromConversationResponses]
+export type CreateMessageFromConversationResponse =
+    CreateMessageFromConversationResponses[keyof CreateMessageFromConversationResponses]
 
-export type RemoveTagsfromConversationData = {
+export type RemoveTagsFromConversationData = {
     body?: Array<string>
     path: {
         /**
@@ -3927,7 +3927,7 @@ export type RemoveTagsfromConversationData = {
     url: '/conversations/{id}/tags'
 }
 
-export type RemoveTagsfromConversationResponses = {
+export type RemoveTagsFromConversationResponses = {
     /**
      * OK
      */
@@ -4012,8 +4012,8 @@ export type RemoveTagsfromConversationResponses = {
     }
 }
 
-export type RemoveTagsfromConversationResponse =
-    RemoveTagsfromConversationResponses[keyof RemoveTagsfromConversationResponses]
+export type RemoveTagsFromConversationResponse =
+    RemoveTagsFromConversationResponses[keyof RemoveTagsFromConversationResponses]
 
 export type AppendTagsToConversationData = {
     body?: Array<string>
@@ -4243,7 +4243,7 @@ export type GetAllForwardsByConversationResponses = {
 export type GetAllForwardsByConversationResponse =
     GetAllForwardsByConversationResponses[keyof GetAllForwardsByConversationResponses]
 
-export type CreateaForwardByConversationData = {
+export type CreateForwardByConversationData = {
     body?: {
         channel: 'email'
         app?: 'gmail' | 'postmark'
@@ -4282,7 +4282,7 @@ export type CreateaForwardByConversationData = {
     url: '/conversations/{id}/forwards'
 }
 
-export type CreateaForwardByConversationResponses = {
+export type CreateForwardByConversationResponses = {
     /**
      * OK
      */
@@ -4366,8 +4366,8 @@ export type CreateaForwardByConversationResponses = {
     }
 }
 
-export type CreateaForwardByConversationResponse =
-    CreateaForwardByConversationResponses[keyof CreateaForwardByConversationResponses]
+export type CreateForwardByConversationResponse =
+    CreateForwardByConversationResponses[keyof CreateForwardByConversationResponses]
 
 export type GetConversationTimesByConversationIdData = {
     body?: never
@@ -4535,7 +4535,7 @@ export type GetConversationTimeByIdsResponses = {
 export type GetConversationTimeByIdsResponse =
     GetConversationTimeByIdsResponses[keyof GetConversationTimeByIdsResponses]
 
-export type GetNotesbyConversationData = {
+export type GetNotesByConversationData = {
     body?: never
     path: {
         /**
@@ -4556,7 +4556,7 @@ export type GetNotesbyConversationData = {
     url: '/conversations/{id}/notes'
 }
 
-export type GetNotesbyConversationResponses = {
+export type GetNotesByConversationResponses = {
     /**
      * OK
      */
@@ -4630,10 +4630,10 @@ export type GetNotesbyConversationResponses = {
     }
 }
 
-export type GetNotesbyConversationResponse =
-    GetNotesbyConversationResponses[keyof GetNotesbyConversationResponses]
+export type GetNotesByConversationResponse =
+    GetNotesByConversationResponses[keyof GetNotesByConversationResponses]
 
-export type CreateaNoteWithinConversationData = {
+export type CreateNoteWithinConversationData = {
     body?: {
         id?: string
         conversation?: string
@@ -4667,7 +4667,7 @@ export type CreateaNoteWithinConversationData = {
     url: '/conversations/{id}/notes'
 }
 
-export type CreateaNoteWithinConversationResponses = {
+export type CreateNoteWithinConversationResponses = {
     /**
      * Created
      */
@@ -4731,8 +4731,8 @@ export type CreateaNoteWithinConversationResponses = {
     }
 }
 
-export type CreateaNoteWithinConversationResponse =
-    CreateaNoteWithinConversationResponses[keyof CreateaNoteWithinConversationResponses]
+export type CreateNoteWithinConversationResponse =
+    CreateNoteWithinConversationResponses[keyof CreateNoteWithinConversationResponses]
 
 export type BulkDeleteCustomersData = {
     body?: never
@@ -6090,7 +6090,7 @@ export type GetaCustomerEventResponses = {
 export type GetaCustomerEventResponse =
     GetaCustomerEventResponses[keyof GetaCustomerEventResponses]
 
-export type GetAllEventsbyCustomerForSessionData = {
+export type GetAllEventsByCustomerForSessionData = {
     body?: never
     path: {
         /**
@@ -6115,7 +6115,7 @@ export type GetAllEventsbyCustomerForSessionData = {
     url: '/customers/{customerId}/sessions/{sessionId}/events'
 }
 
-export type GetAllEventsbyCustomerForSessionResponses = {
+export type GetAllEventsByCustomerForSessionResponses = {
     /**
      * OK
      */
@@ -6184,8 +6184,8 @@ export type GetAllEventsbyCustomerForSessionResponses = {
     }
 }
 
-export type GetAllEventsbyCustomerForSessionResponse =
-    GetAllEventsbyCustomerForSessionResponses[keyof GetAllEventsbyCustomerForSessionResponses]
+export type GetAllEventsByCustomerForSessionResponse =
+    GetAllEventsByCustomerForSessionResponses[keyof GetAllEventsByCustomerForSessionResponses]
 
 export type GetAllCustomerEventsData = {
     body?: never
@@ -10775,7 +10775,7 @@ export type GetKlassesResponses = {
 
 export type GetKlassesResponse = GetKlassesResponses[keyof GetKlassesResponses]
 
-export type CreateaKlassData = {
+export type CreateKlassData = {
     body?: {
         name: string
         displayName?: string
@@ -10791,7 +10791,7 @@ export type CreateaKlassData = {
     url: '/klasses'
 }
 
-export type CreateaKlassResponses = {
+export type CreateKlassResponses = {
     /**
      * OK
      */
@@ -10828,8 +10828,8 @@ export type CreateaKlassResponses = {
     }
 }
 
-export type CreateaKlassResponse =
-    CreateaKlassResponses[keyof CreateaKlassResponses]
+export type CreateKlassResponse =
+    CreateKlassResponses[keyof CreateKlassResponses]
 
 export type DeleteKlassData = {
     body?: never
@@ -12339,14 +12339,14 @@ export type UpdateMessageResponses = {
 export type UpdateMessageResponse =
     UpdateMessageResponses[keyof UpdateMessageResponses]
 
-export type GetMessagebyExternalIdData = {
+export type GetMessageByExternalIdData = {
     body?: never
     path?: never
     query?: never
     url: '/messages/externalid=:externalId'
 }
 
-export type GetMessagebyExternalIdResponses = {
+export type GetMessageByExternalIdResponses = {
     /**
      * OK
      */
@@ -12430,8 +12430,8 @@ export type GetMessagebyExternalIdResponses = {
     }
 }
 
-export type GetMessagebyExternalIdResponse =
-    GetMessagebyExternalIdResponses[keyof GetMessagebyExternalIdResponses]
+export type GetMessageByExternalIdResponse =
+    GetMessageByExternalIdResponses[keyof GetMessageByExternalIdResponses]
 
 export type BulkCreateNotesData = {
     body?: Array<{
@@ -12818,7 +12818,7 @@ export type DeleteNoteByIdResponses = {
     204: unknown
 }
 
-export type GetNotebyIdData = {
+export type GetNoteByIdData = {
     body?: never
     path: {
         /**
@@ -12830,7 +12830,7 @@ export type GetNotebyIdData = {
     url: '/notes/{id}'
 }
 
-export type GetNotebyIdResponses = {
+export type GetNoteByIdResponses = {
     /**
      * OK
      */
@@ -12888,8 +12888,8 @@ export type GetNotebyIdResponses = {
     }
 }
 
-export type GetNotebyIdResponse =
-    GetNotebyIdResponses[keyof GetNotebyIdResponses]
+export type GetNoteByIdResponse =
+    GetNoteByIdResponses[keyof GetNoteByIdResponses]
 
 export type PatchNoteByIdData = {
     body?: {

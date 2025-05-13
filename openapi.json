@@ -15370,7 +15370,7 @@
                 ],
                 "summary": "Create message from conversation",
                 "description": "Creates a new message from a conversation.\n\n### NOTE\n> The new message created by the endpoint will be associated with the same customer as the conversation.\n\nAny one of the following roles is required for this endpoint:\n\n|Legacy Role|Equivalent Permission Set Role|\n|-----|--------|\n|org.user.message.write|org.permission.message.create|\n\n### Authorization\n`org.admin` role is required for setting `createdAt`, `createdBy`, `modifiedAt`, and `modifiedBy`. Otherwise, the token automatically sets these attributes.\n\n### Rate Limit\nMessages are subject to a rate limit. A single client can create up to 120 messages per minute per customer.\nMessages with `importedAt` in their body will not be subject to the rate limit.\n\nA `429 Too Many Requests` response will be returned if the rate limit has been reached for a customer.",
-                "operationId": "CreateMessagefromConversation",
+                "operationId": "CreateMessageFromConversation",
                 "parameters": [
                     {
                         "name": "id",
@@ -17167,7 +17167,7 @@
                 ],
                 "summary": "Remove tags from conversation",
                 "description": "Removes tags from a conversation by tag name and/or the unique ID of the conversation.\n\nAny one of the following roles is required for this endpoint:\n\n|Legacy Role|Equivalent Permission Set Role|\n|-----|--------|\n|org.user.conversation.write|org.permission.conversation.delete|\n\n### Note\n> This endpoint is subject to Object Rate Limiting, which limits how many updates a single User can make to a single Conversation. See [Rate limiting](https://developer.kustomer.com/kustomer-api-docs/reference/rate-limiting) for more information.",
-                "operationId": "RemoveTagsfromConversation",
+                "operationId": "RemoveTagsFromConversation",
                 "parameters": [
                     {
                         "name": "id",

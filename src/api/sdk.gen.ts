@@ -76,24 +76,24 @@ import type {
     BulkBatchUpdateConversationsResponse,
     GetMessagesByConversationData,
     GetMessagesByConversationResponse,
-    CreateMessagefromConversationData,
-    CreateMessagefromConversationResponse,
-    RemoveTagsfromConversationData,
-    RemoveTagsfromConversationResponse,
+    CreateMessageFromConversationData,
+    CreateMessageFromConversationResponse,
+    RemoveTagsFromConversationData,
+    RemoveTagsFromConversationResponse,
     AppendTagsToConversationData,
     AppendTagsToConversationResponse,
     GetAllForwardsByConversationData,
     GetAllForwardsByConversationResponse,
-    CreateaForwardByConversationData,
-    CreateaForwardByConversationResponse,
+    CreateForwardByConversationData,
+    CreateForwardByConversationResponse,
     GetConversationTimesByConversationIdData,
     GetConversationTimesByConversationIdResponse,
     GetConversationTimeByIdsData,
     GetConversationTimeByIdsResponse,
-    GetNotesbyConversationData,
-    GetNotesbyConversationResponse,
-    CreateaNoteWithinConversationData,
-    CreateaNoteWithinConversationResponse,
+    GetNotesByConversationData,
+    GetNotesByConversationResponse,
+    CreateNoteWithinConversationData,
+    CreateNoteWithinConversationResponse,
     BulkDeleteCustomersData,
     BulkDeleteCustomersResponse,
     BulkCreateCustomersData,
@@ -110,8 +110,8 @@ import type {
     CreateDraftByCustomerResponse,
     GetaCustomerEventData,
     GetaCustomerEventResponse,
-    GetAllEventsbyCustomerForSessionData,
-    GetAllEventsbyCustomerForSessionResponse,
+    GetAllEventsByCustomerForSessionData,
+    GetAllEventsByCustomerForSessionResponse,
     GetAllCustomerEventsData,
     GetAllCustomerEventsResponse,
     GetCustomerSessionsData,
@@ -195,8 +195,8 @@ import type {
     UpdateKObjectResponse,
     GetKlassesData,
     GetKlassesResponse,
-    CreateaKlassData,
-    CreateaKlassResponse,
+    CreateKlassData,
+    CreateKlassResponse,
     DeleteKlassData,
     GetKlassData,
     GetKlassResponse,
@@ -225,8 +225,8 @@ import type {
     UpdateMessageAttributesResponse,
     UpdateMessageData,
     UpdateMessageResponse,
-    GetMessagebyExternalIdData,
-    GetMessagebyExternalIdResponse,
+    GetMessageByExternalIdData,
+    GetMessageByExternalIdResponse,
     BulkCreateNotesData,
     BulkCreateNotesResponse,
     BulkBatchUpdateNotesData,
@@ -236,8 +236,8 @@ import type {
     CreateNoteData,
     CreateNoteResponse,
     DeleteNoteByIdData,
-    GetNotebyIdData,
-    GetNotebyIdResponse,
+    GetNoteByIdData,
+    GetNoteByIdResponse,
     PatchNoteByIdData,
     PatchNoteByIdResponse,
     UpdateNoteByIdData,
@@ -1255,13 +1255,13 @@ export const getMessagesByConversation = <ThrowOnError extends boolean = true>(
  *
  * A `429 Too Many Requests` response will be returned if the rate limit has been reached for a customer.
  */
-export const createMessagefromConversation = <
+export const createMessageFromConversation = <
     ThrowOnError extends boolean = true
 >(
-    options: Options<CreateMessagefromConversationData, ThrowOnError>
+    options: Options<CreateMessageFromConversationData, ThrowOnError>
 ) => {
     return options.client.post<
-        CreateMessagefromConversationResponse,
+        CreateMessageFromConversationResponse,
         unknown,
         ThrowOnError
     >({
@@ -1287,11 +1287,11 @@ export const createMessagefromConversation = <
  * ### Note
  * > This endpoint is subject to Object Rate Limiting, which limits how many updates a single User can make to a single Conversation. See [Rate limiting](https://developer.kustomer.com/kustomer-api-docs/reference/rate-limiting) for more information.
  */
-export const removeTagsfromConversation = <ThrowOnError extends boolean = true>(
-    options: Options<RemoveTagsfromConversationData, ThrowOnError>
+export const removeTagsFromConversation = <ThrowOnError extends boolean = true>(
+    options: Options<RemoveTagsFromConversationData, ThrowOnError>
 ) => {
     return options.client.delete<
-        RemoveTagsfromConversationResponse,
+        RemoveTagsFromConversationResponse,
         unknown,
         ThrowOnError
     >({
@@ -1377,13 +1377,13 @@ export const getAllForwardsByConversation = <
  * |org.user.conversation_forward.write|org.permission.conversation_forward.create|
  *
  */
-export const createaForwardByConversation = <
+export const createForwardByConversation = <
     ThrowOnError extends boolean = true
 >(
-    options: Options<CreateaForwardByConversationData, ThrowOnError>
+    options: Options<CreateForwardByConversationData, ThrowOnError>
 ) => {
     return options.client.post<
-        CreateaForwardByConversationResponse,
+        CreateForwardByConversationResponse,
         unknown,
         ThrowOnError
     >({
@@ -1456,11 +1456,11 @@ export const getConversationTimeByIds = <ThrowOnError extends boolean = true>(
  * |-----|--------|
  * |org.user.note.read|org.permission.note.read|
  */
-export const getNotesbyConversation = <ThrowOnError extends boolean = true>(
-    options: Options<GetNotesbyConversationData, ThrowOnError>
+export const getNotesByConversation = <ThrowOnError extends boolean = true>(
+    options: Options<GetNotesByConversationData, ThrowOnError>
 ) => {
     return options.client.get<
-        GetNotesbyConversationResponse,
+        GetNotesByConversationResponse,
         unknown,
         ThrowOnError
     >({
@@ -1485,13 +1485,13 @@ export const getNotesbyConversation = <ThrowOnError extends boolean = true>(
  * ### Rate limit
  * Notes are subject to a rate limit. A single client can create up to 120 notes per minute per customer.
  */
-export const createaNoteWithinConversation = <
+export const createNoteWithinConversation = <
     ThrowOnError extends boolean = true
 >(
-    options: Options<CreateaNoteWithinConversationData, ThrowOnError>
+    options: Options<CreateNoteWithinConversationData, ThrowOnError>
 ) => {
     return options.client.post<
-        CreateaNoteWithinConversationResponse,
+        CreateNoteWithinConversationResponse,
         unknown,
         ThrowOnError
     >({
@@ -1734,13 +1734,13 @@ export const getaCustomerEvent = <ThrowOnError extends boolean = true>(
  * |-----|--------|
  * |org.user.event.read|org.permission.event.read|
  */
-export const getAllEventsbyCustomerForSession = <
+export const getAllEventsByCustomerForSession = <
     ThrowOnError extends boolean = true
 >(
-    options: Options<GetAllEventsbyCustomerForSessionData, ThrowOnError>
+    options: Options<GetAllEventsByCustomerForSessionData, ThrowOnError>
 ) => {
     return options.client.get<
-        GetAllEventsbyCustomerForSessionResponse,
+        GetAllEventsByCustomerForSessionResponse,
         unknown,
         ThrowOnError
     >({
@@ -2994,10 +2994,10 @@ export const getKlasses = <ThrowOnError extends boolean = true>(
  * |-----|--------|
  * |org.admin.klass.write|org.permission.klass.create|
  */
-export const createaKlass = <ThrowOnError extends boolean = true>(
-    options: Options<CreateaKlassData, ThrowOnError>
+export const createKlass = <ThrowOnError extends boolean = true>(
+    options: Options<CreateKlassData, ThrowOnError>
 ) => {
-    return options.client.post<CreateaKlassResponse, unknown, ThrowOnError>({
+    return options.client.post<CreateKlassResponse, unknown, ThrowOnError>({
         url: '/klasses',
         ...options,
         headers: {
@@ -3442,11 +3442,11 @@ export const updateMessage = <ThrowOnError extends boolean = true>(
  * |-|-|-|
  * | externalID	| string	| Unique external ID of the message.	|
  */
-export const getMessagebyExternalId = <ThrowOnError extends boolean = true>(
-    options: Options<GetMessagebyExternalIdData, ThrowOnError>
+export const getMessageByExternalId = <ThrowOnError extends boolean = true>(
+    options: Options<GetMessageByExternalIdData, ThrowOnError>
 ) => {
     return options.client.get<
-        GetMessagebyExternalIdResponse,
+        GetMessageByExternalIdResponse,
         unknown,
         ThrowOnError
     >({
@@ -3582,10 +3582,10 @@ export const deleteNoteById = <ThrowOnError extends boolean = true>(
  * |-----|--------|
  * |org.user.note.read|org.permission.note.read|
  */
-export const getNotebyId = <ThrowOnError extends boolean = true>(
-    options: Options<GetNotebyIdData, ThrowOnError>
+export const getNoteById = <ThrowOnError extends boolean = true>(
+    options: Options<GetNoteByIdData, ThrowOnError>
 ) => {
-    return options.client.get<GetNotebyIdResponse, unknown, ThrowOnError>({
+    return options.client.get<GetNoteByIdResponse, unknown, ThrowOnError>({
         url: '/notes/{id}',
         ...options,
     })
