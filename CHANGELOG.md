@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/LarisLab/kustomer-client/compare/v1.0.6...v1.1.0) (2025-05-13)
+
+
+### Features
+
+* access management API support ([b6690fe](https://github.com/LarisLab/kustomer-client/commit/b6690fedb29632627da86522eae5f22722c25cab))
+
 ## [1.0.6](https://github.com/LarisLab/kustomer-client/compare/v1.0.5...v1.0.6) (2025-05-13)
 
 
