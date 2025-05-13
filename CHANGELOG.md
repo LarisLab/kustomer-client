@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/LarisLab/kustomer-client/compare/v1.0.5...v1.0.6) (2025-05-13)
+
+
+### Bug Fixes
+
+* improve operation names ([1d997b7](https://github.com/LarisLab/kustomer-client/commit/1d997b720e12093667f9b070e04153de8f833584))
+
 ## [1.0.5](https://github.com/LarisLab/kustomer-client/compare/v1.0.4...v1.0.5) (2025-05-13)
 
 
