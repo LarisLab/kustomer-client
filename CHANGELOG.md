@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/LarisLab/kustomer-client/compare/v1.0.3...v1.0.4) (2025-05-09)
+
+
+### Bug Fixes
+
+* message conversation custom attributes ([20dd03b](https://github.com/LarisLab/kustomer-client/commit/20dd03b9a61c02ba479cc27cb52ad70650ce41aa))
+
 ## [1.0.3](https://github.com/LarisLab/kustomer-client/compare/v1.0.2...v1.0.3) (2025-05-09)
 
 
