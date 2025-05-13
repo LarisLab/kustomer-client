@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/LarisLab/kustomer-client/compare/v1.0.4...v1.0.5) (2025-05-13)
+
+
+### Bug Fixes
+
+* improve API operation names ([bdeef88](https://github.com/LarisLab/kustomer-client/commit/bdeef883d2bfe20e9a22b36f07e688db9e0106f6))
+
 ## [1.0.4](https://github.com/LarisLab/kustomer-client/compare/v1.0.3...v1.0.4) (2025-05-09)
 
 
