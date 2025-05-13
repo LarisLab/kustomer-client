@@ -262,6 +262,67 @@ import type {
     DeleteSpamSenderData,
     GetKlassesByNameAndExternalIdData,
     GetKlassesByNameAndExternalIdResponse,
+    GetAuthSettingsData,
+    GetAuthSettingsResponse,
+    UpdateAuthSettingsData,
+    UpdateAuthSettingsResponse,
+    GetAuthCustomerSettingsData,
+    GetAuthCustomerSettingsResponse,
+    GetPublicAuthSettingsData,
+    GetPublicAuthSettingsResponse,
+    GetAuthTokensData,
+    GetAuthTokensResponse,
+    CreateTokenData,
+    CreateTokenResponse,
+    DeleteAuthTokenByIdData,
+    GetAuthTokenByIdData,
+    GetAuthTokenByIdResponse,
+    DeleteCurrentAuthTokenData,
+    GetCurrentAuthTokenData,
+    GetCurrentAuthTokenResponse,
+    GetAuthRolesData,
+    GetAuthRolesResponse,
+    GetAllRoleGroupsData,
+    GetAllRoleGroupsResponse,
+    CreateRoleGroupData,
+    CreateRoleGroupResponse,
+    DeleteRoleGroupData,
+    GetRoleGroupByIdData,
+    GetRoleGroupByIdResponse,
+    UpdateRoleGroupData,
+    UpdateRoleGroupResponse,
+    GetTeamsData,
+    GetTeamsResponse,
+    CreateTeamData,
+    CreateTeamResponse,
+    GetUsersTeamsData,
+    GetUsersTeamsResponse,
+    DeleteTeamData,
+    GetTeamByIdData,
+    GetTeamByIdResponse,
+    UpdateTeamAttributesData,
+    UpdateTeamAttributesResponse,
+    UpdateTeamByIdData,
+    UpdateTeamByIdResponse,
+    RemoveTeamMemberData,
+    RemoveTeamMemberResponse,
+    AddTeamMemberData,
+    AddTeamMemberResponse,
+    GetUsersData,
+    GetUsersResponse,
+    CreateInviteNewUserData,
+    CreateInviteNewUserResponse,
+    GetCurrentUserData,
+    GetCurrentUserResponse,
+    UpdateCurrentUserData,
+    UpdateCurrentUserResponse,
+    GetUserByIdData,
+    GetUserByIdResponse,
+    UpdateUserByIdData,
+    UpdateUserByIdResponse,
+    GetMultipleUsersByIdsData,
+    GetMultipleUsersByIdsResponse,
+    ResetUsersPasswordData,
 } from './types.gen'
 
 export type Options<
@@ -5035,5 +5096,585 @@ export const getKlassesByNameAndExternalId = <
     >({
         url: '/klasses/{name}/externalId={externalId}',
         ...options,
+    })
+}
+
+/**
+ * Get Auth Settings
+ * Gets authentication settings for the organization
+ *
+ * #### NOTE
+ * >Requires **org.admin.security** privileges
+ */
+export const getAuthSettings = <ThrowOnError extends boolean = true>(
+    options: Options<GetAuthSettingsData, ThrowOnError>
+) => {
+    return options.client.get<GetAuthSettingsResponse, unknown, ThrowOnError>({
+        url: '/auth/settings',
+        ...options,
+    })
+}
+
+/**
+ * Update Auth Settings
+ * Updates authentication settings for the organization
+ *
+ * #### NOTE
+ * >Requires **org.admin.security** privileges
+ */
+export const updateAuthSettings = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateAuthSettingsData, ThrowOnError>
+) => {
+    return options.client.put<
+        UpdateAuthSettingsResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/auth/settings',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get Auth Customer Settings
+ * Gets customer authentication settings, including a generated secret token.
+ *
+ * #### NOTE
+ * >Requires **org.admin** privileges
+ */
+export const getAuthCustomerSettings = <ThrowOnError extends boolean = true>(
+    options: Options<GetAuthCustomerSettingsData, ThrowOnError>
+) => {
+    return options.client.get<
+        GetAuthCustomerSettingsResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/auth/customer/settings',
+        ...options,
+    })
+}
+
+/**
+ * Get Public Auth Settings
+ * Gets public authentication settings for the organization.
+ */
+export const getPublicAuthSettings = <ThrowOnError extends boolean = true>(
+    options: Options<GetPublicAuthSettingsData, ThrowOnError>
+) => {
+    return options.client.get<
+        GetPublicAuthSettingsResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/p/auth/settings',
+        ...options,
+    })
+}
+
+/**
+ * Get Auth Tokens
+ * Returns a list of all auth tokens associated with the current authenticated user
+ *
+ * #### NOTE
+ * > Requires **org.admin.security** privileges
+ */
+export const getAuthTokens = <ThrowOnError extends boolean = true>(
+    options: Options<GetAuthTokensData, ThrowOnError>
+) => {
+    return options.client.get<GetAuthTokensResponse, unknown, ThrowOnError>({
+        url: '/auth/tokens',
+        ...options,
+    })
+}
+
+/**
+ * Create Token
+ * Logs in to an organization with domain, email, and password.
+ *
+ * #### NOTE
+ * > **Machine tokens** can be created within the settings section by an administrator for API, tracking, and hook access
+ */
+export const createToken = <ThrowOnError extends boolean = true>(
+    options: Options<CreateTokenData, ThrowOnError>
+) => {
+    return options.client.post<CreateTokenResponse, unknown, ThrowOnError>({
+        url: '/auth/tokens',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Delete Auth Token by ID
+ * Deletes an authentication token for any user within the organization by id
+ */
+export const deleteAuthTokenById = <ThrowOnError extends boolean = true>(
+    options: Options<DeleteAuthTokenByIdData, ThrowOnError>
+) => {
+    return options.client.delete<unknown, unknown, ThrowOnError>({
+        url: '/auth/tokens/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Get Auth Token by ID
+ * Gets an authentication token for any user within the organization by id
+ *
+ * #### NOTE
+ * > Requires **org.admin** privileges
+ */
+export const getAuthTokenById = <ThrowOnError extends boolean = true>(
+    options: Options<GetAuthTokenByIdData, ThrowOnError>
+) => {
+    return options.client.get<GetAuthTokenByIdResponse, unknown, ThrowOnError>({
+        url: '/auth/tokens/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Delete Current Auth Token
+ * Deletes the current authentication token
+ */
+export const deleteCurrentAuthToken = <ThrowOnError extends boolean = true>(
+    options: Options<DeleteCurrentAuthTokenData, ThrowOnError>
+) => {
+    return options.client.delete<unknown, unknown, ThrowOnError>({
+        url: '/auth/tokens/current',
+        ...options,
+    })
+}
+
+/**
+ * Get Current Auth Token
+ * Gets the current authentication token data
+ */
+export const getCurrentAuthToken = <ThrowOnError extends boolean = true>(
+    options: Options<GetCurrentAuthTokenData, ThrowOnError>
+) => {
+    return options.client.get<
+        GetCurrentAuthTokenResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/auth/tokens/current',
+        ...options,
+    })
+}
+
+/**
+ * Get Auth Roles
+ * Gets available organization Roles
+ */
+export const getAuthRoles = <ThrowOnError extends boolean = true>(
+    options: Options<GetAuthRolesData, ThrowOnError>
+) => {
+    return options.client.get<GetAuthRolesResponse, unknown, ThrowOnError>({
+        url: '/auth/roles',
+        ...options,
+    })
+}
+
+/**
+ * Get All Role Groups
+ * Lists the organization's role groups.
+ *
+ * This will include both the system (uneditable) and custom role groups.
+ */
+export const getAllRoleGroups = <ThrowOnError extends boolean = true>(
+    options: Options<GetAllRoleGroupsData, ThrowOnError>
+) => {
+    return options.client.get<GetAllRoleGroupsResponse, unknown, ThrowOnError>({
+        url: '/role-groups',
+        ...options,
+    })
+}
+
+/**
+ * Create a Role Group
+ * Creates a custom role group for the organization.
+ *
+ * ### Auth Roles
+ * For a list of latest available outh roles, checkout the response from the Get Auth Roles API endpoint.
+ */
+export const createRoleGroup = <ThrowOnError extends boolean = true>(
+    options: Options<CreateRoleGroupData, ThrowOnError>
+) => {
+    return options.client.post<CreateRoleGroupResponse, unknown, ThrowOnError>({
+        url: '/role-groups',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Delete a Role Group
+ * Deletes a role group for the organiztion by ID
+ */
+export const deleteRoleGroup = <ThrowOnError extends boolean = true>(
+    options: Options<DeleteRoleGroupData, ThrowOnError>
+) => {
+    return options.client.delete<unknown, unknown, ThrowOnError>({
+        url: '/role-groups/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Get A Role Group By ID
+ * Gets a single role group.
+ */
+export const getRoleGroupById = <ThrowOnError extends boolean = true>(
+    options: Options<GetRoleGroupByIdData, ThrowOnError>
+) => {
+    return options.client.get<GetRoleGroupByIdResponse, unknown, ThrowOnError>({
+        url: '/role-groups/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Update a Role Group
+ * Updates a role group for the organiztion
+ *
+ * ### Auth Roles
+ * For a list of latest available outh roles, checkout the response from the Get Auth Roles API endpoint.
+ */
+export const updateRoleGroup = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateRoleGroupData, ThrowOnError>
+) => {
+    return options.client.put<UpdateRoleGroupResponse, unknown, ThrowOnError>({
+        url: '/role-groups/{id}',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get Teams
+ * Gets Teams for the Organization
+ */
+export const getTeams = <ThrowOnError extends boolean = true>(
+    options: Options<GetTeamsData, ThrowOnError>
+) => {
+    return options.client.get<GetTeamsResponse, unknown, ThrowOnError>({
+        url: '/teams',
+        ...options,
+    })
+}
+
+/**
+ * Create Team
+ * Creates a Team.
+ */
+export const createTeam = <ThrowOnError extends boolean = true>(
+    options: Options<CreateTeamData, ThrowOnError>
+) => {
+    return options.client.post<CreateTeamResponse, unknown, ThrowOnError>({
+        url: '/teams',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get a User's Teams
+ * Gets list of all Teams for a specific user.
+ */
+export const getUsersTeams = <ThrowOnError extends boolean = true>(
+    options: Options<GetUsersTeamsData, ThrowOnError>
+) => {
+    return options.client.get<GetUsersTeamsResponse, unknown, ThrowOnError>({
+        url: '/users/{id}/teams',
+        ...options,
+    })
+}
+
+/**
+ * Delete Team
+ * Deletes a Team by ID.
+ */
+export const deleteTeam = <ThrowOnError extends boolean = true>(
+    options: Options<DeleteTeamData, ThrowOnError>
+) => {
+    return options.client.delete<unknown, unknown, ThrowOnError>({
+        url: '/teams/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Get Team by ID
+ * Gets a Team by ID.
+ *
+ * > **Note** To retrieve user records of all members within a team, use the results from the members array and make a subsequent call to [Get User Multi](#endpoint:d4yQXqTBxzzhg96Gk)
+ *
+ */
+export const getTeamById = <ThrowOnError extends boolean = true>(
+    options: Options<GetTeamByIdData, ThrowOnError>
+) => {
+    return options.client.get<GetTeamByIdResponse, unknown, ThrowOnError>({
+        url: '/teams/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Update Team Attributes
+ * Updates one or more Team Attribute(s) by ID.
+ */
+export const updateTeamAttributes = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateTeamAttributesData, ThrowOnError>
+) => {
+    return options.client.patch<
+        UpdateTeamAttributesResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/teams/{id}',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Update Team by ID
+ * Updates a team document by ID.
+ */
+export const updateTeamById = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateTeamByIdData, ThrowOnError>
+) => {
+    return options.client.put<UpdateTeamByIdResponse, unknown, ThrowOnError>({
+        url: '/teams/{id}',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Remove Team Member
+ * Deletes a member of a Team.
+ */
+export const removeTeamMember = <ThrowOnError extends boolean = true>(
+    options: Options<RemoveTeamMemberData, ThrowOnError>
+) => {
+    return options.client.delete<
+        RemoveTeamMemberResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/teams/{id}/members',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Add Team Member
+ * Adds a member to a Team.
+ */
+export const addTeamMember = <ThrowOnError extends boolean = true>(
+    options: Options<AddTeamMemberData, ThrowOnError>
+) => {
+    return options.client.post<AddTeamMemberResponse, unknown, ThrowOnError>({
+        url: '/teams/{id}/members',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get Users
+ * Retrieves users within the organization.
+ *
+ * ## Filtering
+ *
+ * This endpoint supports optional filtering in one of the following ways:
+ *
+ * **Note: These filters cannot be combined.**
+ *
+ * ### Pending (invitation)
+ * Add ```pending=(true|false)``` in the query parameters with one of the following options:
+ *
+ * - `true` - Return only disabled users
+ * - `false` - Return only active users
+ *
+ * ### Deleted (deactivated)
+ * Add ```deleted=(true|false)``` in the query parameters with one of the following options:
+ *
+ * - `true` - Return only deactivated users
+ * - `false` - Return only active users
+ *
+ * ### User Type
+ * Add ```userType=[userType]``` in the query parameters with one of the following options:
+ *
+ * - `user` - Full user
+ * - `machine` - Machine user / API user
+ * - `limited` - Collaborator user
+ *
+ * ### Email
+ * Add ```email=[email]``` in the query parameter to filter for a specific user email address.
+ */
+export const getUsers = <ThrowOnError extends boolean = true>(
+    options: Options<GetUsersData, ThrowOnError>
+) => {
+    return options.client.get<GetUsersResponse, unknown, ThrowOnError>({
+        url: '/users',
+        ...options,
+    })
+}
+
+/**
+ * Create / Invite New User
+ * Creates an account for a new user and sends an email invitation to join the organization within Kustomer.
+ *
+ * ### Note
+ * > Requires **org.admin.user** permissions.  The permissions for the new user cannot exceed those of the user making the request and will be filtered automatically. The default roles for new users are **org.admin** and **org.user**.
+ */
+export const createInviteNewUser = <ThrowOnError extends boolean = true>(
+    options: Options<CreateInviteNewUserData, ThrowOnError>
+) => {
+    return options.client.post<
+        CreateInviteNewUserResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/users',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get Current User
+ * Retrieves the current user.
+ */
+export const getCurrentUser = <ThrowOnError extends boolean = true>(
+    options: Options<GetCurrentUserData, ThrowOnError>
+) => {
+    return options.client.get<GetCurrentUserResponse, unknown, ThrowOnError>({
+        url: '/users/current',
+        ...options,
+    })
+}
+
+/**
+ * Update Current User
+ * Updates the current user.
+ */
+export const updateCurrentUser = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateCurrentUserData, ThrowOnError>
+) => {
+    return options.client.put<UpdateCurrentUserResponse, unknown, ThrowOnError>(
+        {
+            url: '/users/current',
+            ...options,
+            headers: {
+                'Content-Type': 'application/json',
+                ...options?.headers,
+            },
+        }
+    )
+}
+
+/**
+ * Get User by ID
+ * Retrieves a user using their unique ID.
+ */
+export const getUserById = <ThrowOnError extends boolean = true>(
+    options: Options<GetUserByIdData, ThrowOnError>
+) => {
+    return options.client.get<GetUserByIdResponse, unknown, ThrowOnError>({
+        url: '/users/{id}',
+        ...options,
+    })
+}
+
+/**
+ * Update User by ID
+ * Updates a specific user by ID.
+ *
+ * #### <i class="fa fa-warning"></i> Note
+ * *To delete a user, set deleted to true.  You can un-delete by setting the deleted to null*
+ */
+export const updateUserById = <ThrowOnError extends boolean = true>(
+    options: Options<UpdateUserByIdData, ThrowOnError>
+) => {
+    return options.client.put<UpdateUserByIdResponse, unknown, ThrowOnError>({
+        url: '/users/{id}',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
+    })
+}
+
+/**
+ * Get Multiple Users by IDs
+ * Retrieves multiple users in a single request using a list of unique user IDs separated by a comma.
+ */
+export const getMultipleUsersByIds = <ThrowOnError extends boolean = true>(
+    options: Options<GetMultipleUsersByIdsData, ThrowOnError>
+) => {
+    return options.client.get<
+        GetMultipleUsersByIdsResponse,
+        unknown,
+        ThrowOnError
+    >({
+        url: '/users/{ids}',
+        ...options,
+    })
+}
+
+/**
+ * Reset User's Password
+ * Requests a password reset.
+ *
+ * This will send an email to the email address specified with a token-based URL for authenticating and setting a new password.
+ */
+export const resetUsersPassword = <ThrowOnError extends boolean = true>(
+    options: Options<ResetUsersPasswordData, ThrowOnError>
+) => {
+    return options.client.post<unknown, unknown, ThrowOnError>({
+        url: '/users/passwordreset',
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers,
+        },
     })
 }
