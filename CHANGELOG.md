@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/LarisLab/kustomer-client/compare/v1.1.0...v1.2.0) (2025-06-19)
+
+
+### Features
+
+* Sandbox support ([608f88c](https://github.com/LarisLab/kustomer-client/commit/608f88c17e70d86a531fce4acc0a0f430b6f0e10))
+
 # [1.1.0](https://github.com/LarisLab/kustomer-client/compare/v1.0.6...v1.1.0) (2025-05-13)
 
 
