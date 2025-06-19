@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/LarisLab/kustomer-client/compare/v1.2.0...v1.2.1) (2025-06-19)
+
+
+### Bug Fixes
+
+* subdomain fix ([587a4b6](https://github.com/LarisLab/kustomer-client/commit/587a4b6e51ba49a692c892699c5991bba752ef6a))
+
 # [1.2.0](https://github.com/LarisLab/kustomer-client/compare/v1.1.0...v1.2.0) (2025-06-19)
 
 
