@@ -6,7 +6,18 @@ import {
 } from '@hey-api/client-fetch'
 
 export interface KustomerClientConfig extends Pick<Config, 'fetch'> {
-    subdomain?: string
+    /**
+     * Possible values are:
+     * - `sandbox` points to https://sandbox.kustomerapp.com/v1
+     * - `api` points to https://api.kustomerapp.com/v1
+     * - other subdomain points to https://<subdomain>.kustomerapp.com/v1
+     *
+     * @default 'api' points to https://api.kustomerapp.com/v1
+     */
+    subdomain?: 'sandbox' | 'api' | string
+    /**
+     * Kustomer API key.
+     */
     auth: string
 }
 
@@ -29,19 +40,22 @@ export function createKustomerClient({
     auth,
     ...config
 }: KustomerClientConfig): Client {
+    const urls: Record<string, string> = {
+        sandbox: 'https://sandbox.kustomerapp.com/v1',
+        api: 'https://api.kustomerapp.com/v1',
+    }
+
     const client = createDefaultClient(
         createDefaultConfig({
             throwOnError: true,
-            baseUrl: subdomain
-                ? `https://${subdomain}.api.kustomerapp.com/v1`
-                : 'https://api.kustomerapp.com/v1',
+            baseUrl: subdomain ? urls[subdomain] || subdomain : urls.api,
             headers: {
                 authorization: `Bearer ${auth}`,
                 accept: 'application/json',
                 'content-type': 'application/json',
             },
             ...config,
-        })
+        }),
     )
 
     client.interceptors.error.use((error) => {
