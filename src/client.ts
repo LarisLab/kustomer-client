@@ -40,15 +40,12 @@ export function createKustomerClient({
     auth,
     ...config
 }: KustomerClientConfig): Client {
-    const urls: Record<string, string> = {
-        sandbox: 'https://sandbox.kustomerapp.com/v1',
-        api: 'https://api.kustomerapp.com/v1',
-    }
-
     const client = createDefaultClient(
         createDefaultConfig({
             throwOnError: true,
-            baseUrl: subdomain ? urls[subdomain] || subdomain : urls.api,
+            baseUrl: subdomain
+                ? `https://${subdomain}.api.kustomerapp.com/v1`
+                : 'https://api.kustomerapp.com/v1',
             headers: {
                 authorization: `Bearer ${auth}`,
                 accept: 'application/json',
